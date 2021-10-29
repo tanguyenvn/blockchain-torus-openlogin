@@ -71,15 +71,35 @@ function App() {
         setPrivKey('');
     }
 
-    
-    if (isLoading) return <div>Loading...</div>
-    return privKey ?
-        (<div>
-            Logged in address: {address}
-            <div>Balance: {balance}</div>
-            <div><button onClick={onLogout}>Logout</button></div>
-        </div>) :
-        (<button onClick={onLogin}>Login</button>);
+
+    return (
+        <div class="container">
+            <div class="header clearfix"> <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="#">Home</a></li>
+                    <li role="presentation">{privKey ? <a role="button" onClick={onLogout}>Log-out</a> : <span></span>}</li>
+                </ul>
+            </nav>
+                <h3 class="text-muted">Torus Demo</h3>
+            </div>
+
+            <div class="jumbotron">
+                <h1>OpenLogin & React</h1>
+                <p>
+                    {isLoading ? <div>Loading...</div> :
+                        privKey ? (<div>
+                            <p><b>Address:</b> {address}</p>
+                            <p><b>Balance:</b> {balance}</p></div>)
+                            : (<p class="lead">
+                                <p>A plug n play auth suite that combines the simplicity of passwordless authentication with the security of non-custodial public key infrastructure.</p>
+                                <a class="btn btn-lg btn-success" href="#" role="button" onClick={onLogin}>Login</a>
+                            </p>)
+                    }
+                </p>
+            </div>
+        </div>
+    );
+
 }
 
 export default App;
