@@ -1,5 +1,5 @@
-# OpenLogin - React
-Integrate Torus OpenLogin with React application
+# OpenLogin demo
+Integrate Torus OpenLogin with a React application
 
 ## Getting started
 - Install dependencies
